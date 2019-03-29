@@ -1,0 +1,53 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>getJSON获取数据</title>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<style type="text/css">
+#divframe {
+  border: 1px solid #999;
+  width: 500px;
+  margin: 0 auto;
+}
+.loadTitle {
+  background: #CCC;
+  height: 30px;
+}
+</style>
+<script type="text/javascript">
+$(function(){
+  $("#btn").click(function(){
+    $.getJSON("./js/demoh.js",function(data){
+      var $jsontip = $("#jsonTip");
+      var strHtml = "123";//存储数据的变量
+      $jsontip.empty();//清空内容
+      $.each(data,function(infoIndex,info){
+        strHtml += "集名："+info["vn"]+"<br>";
+        strHtml += "集标题："+info["vt"]+"<br>";
+        strHtml += "播放地址："+info["vurl"]+"<br>";
+        strHtml +="<a href='"+info["vurl"]+"'>"+info["vt"]+"</a>" + "</br></br>";
+        //strHtml +="<img width="225" height="300" src='"+info["vpic"]+"' +"/>" + "</br>";
+        //strHtml +="<img id="imgId" src="" border="0"/> + "<br>";
+        strHtml += "<hr>"
+        //document.getElementById("imgId").src='"+info["vpic"]+"';
+      })
+      $jsontip.html(strHtml);//显示处理后的数据
+      $.each(data, function(i, item) {
+                    var content ="<a href='求大神指点'>" + item.title + "</a>" + "</br>";
+                    $("#result").append(content);
+                })
+    })
+  })
+})
+</script>
+</head>
+<body>
+<div id="divframe">
+  <div class="loadTitle">
+    <input type="button" value="获取数据" id="btn"/>
+  </div>
+  <div id="jsonTip"> </div>
+</div>
+<div id="json"><img width="225" height="300" src="//wx1.sinaimg.cn/mw690/006We1hygy1g0nl0evf7bj304s06qq39.jpg" alt="新倚天屠龙记" /></div>
+</body>
+</html>
