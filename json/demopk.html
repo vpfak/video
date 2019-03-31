@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>jQuery中将json数据显示到页面表格的方法</title>
+    <script src="js/jquery-1.11.3.js"></script>
+
+  </head>
+  <body>
+    <table border="1px" id="tab">
+      <tr>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+      </tr>
+    </table>
+    <script>
+       jQuery.getJSON("js/ds.json",function(data){
+           jQuery(data.epsodelist).each(function(index,value){
+               console.log(value);
+       });
+   });
+    </script>
+  </body>
+</html>
