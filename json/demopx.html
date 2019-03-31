@@ -25,10 +25,10 @@ $(function(){
       $jsontip.empty();//清空内容
       $.each(data,function(infoIndex,info){
         strHtml += "姓名："+info.name+"<br>";
-        strHtml += "性别："+info.sex.+"<br>";
+        strHtml += "性别："+info.sex+"<br>";
         strHtml += "邮箱："+info.email+"<br>";
         strHtml +="<a href='"+info.link+"'>"+info["nameto"]+"</a>" + "</br></br>";
-        strHtml +="<a href='"+ info.vurl +"'><img width='+w+' height='+h+' src='"+info.vpic +"' title='"+ info.subtitle +"'><\/>"+info.vn+"<\/a>" + "</br></br>";
+        strHtml +="<a href='"+info.vurl+"'><img width='+w+' height='+h+' src='"+info.vpic+"' title='"+info.subtitle+"'><\/>"+info.vn+"<\/a>" + "</br></br>";
         strHtml += "<hr>"
       })
       $jsontip.html(strHtml);//显示处理后的数据
