@@ -19,7 +19,7 @@ var w = '130px'; //宽度
 var h = '130px'; //高度
 $(function(){
   $("#btn").click(function(){
-    $.getJSON("http://pcw-api.iqiyi.com/albums/album/avlistinfo?aid=202861101&size=50&page=9&callback=window.Q.__callbacks__.cbqgbycw",function(data){
+    $.getJSON("https://pcw-api.iqiyi.com/albums/album/avlistinfo?aid=202861101&size=50&page=9&callback=window.Q.__callbacks__.cbqgbycw",function(data){
       var $jsontip = $("#jsonTip");
       var strHtml = "123";//存储数据的变量
       $jsontip.empty();//清空内容
