@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>基于json数据的动态广告滚动轮播图jQuery插件</title>
+	<meta name="keywords" content="基于json数据,动态,广告滚动轮播图,jQuery插件" />
+	<meta name="description" content="基于json数据的动态广告滚动轮播图jQuery插件下载。温馨提示：该js特效需要在服务器环境下运行或本地使用火狐浏览器打开。" /> 
+	<meta name="author" content="js代码(www.jsdaima.com)" />
+	<meta name="copyright" content="js代码(www.jsdaima.com)" />
+	<link rel="stylesheet" type="text/css" href="css/jquery_carousel_slider.css">
+	<style type="text/css">
+		.codeblock
+		{
+			padding: 10px;
+			font-family: 'Microsoft Yahei';
+			font-size: 14px;
+			margin-top:50px;
+			position: relative;
+			left:50%;
+			transform:translateX(-50%); 
+			background-color: #f7f7f7;
+			width: 600px;
+			color:#333;
+			border-radius: 3px; 
+		}
+	</style>
+</head>
+<body>
+	<div class="htmleaf-container">
+		
+		<div class ='box' id="nba"></div>
+		<hr style="margin-top:30px;">
+		
+		
+		<div class ='box' id="movie"></div>
+		
+	</div>
+	
+	<script type="text/javascript" src="/static/js/protect.js"></script>
+<script type="text/javascript" src="./static/js/jquery-1.10.2.mins.js"></script>
+	 <script src="js/jquery_carousel_slider.js"></script>
+	 <script type="text/javascript">
+	 	$(function(){
+
+			$.getJSON("JSON/data.js",function (result){
+				var setting = {
+					subject:'Movie',
+					cardw : 145,	//page card's width .
+					cardh : 217,
+					cardn : 5,		//the number of visible page card .
+					margin : 9,		//margin between cards .
+					JSON :result
+				};
+				$('#movie').slider(setting);
+			});
+
+			$.getJSON("JSON/data.js",function (result){
+				var setting = {
+					subject:'NBA',
+					cardw : 145,	//page card's width .
+					cardh : 145,
+					cardn : 7,		//the number of visible page card .
+					margin : 9,		//margin between cards .
+					JSON :result
+				};
+				$('#nba').slider(setting);
+			});
+		});
+	 </script>
+</body>
+</html>
