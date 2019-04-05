@@ -18,9 +18,9 @@
 <script>
     $(document).ready(function(){
        
-      console.log(1111)
+      console.log('k1111')
        $.ajax({
-    url:'https://z1.m1907.cn/api/v/?z=e090d9a71dfabaeefd49ff1c6afcdfae&jx=%E5%80%9A%E5%A4%A9%E5%B1%A0%E9%BE%99%E8%AE%B02019';
+    url:'https://api.coindesk.com/v1/bpi/currentprice/CNY.json',
     type: "post",
     dataType: "json",
     success: function (result) {
@@ -33,7 +33,7 @@ console.log('+result+')
 });
           $.getJSON('https://z1.m1907.cn/api/v/?z=e090d9a71dfabaeefd49ff1c6afcdfae&jx=%E5%80%9A%E5%A4%A9%E5%B1%A0%E9%BE%99%E8%AE%B02019',function(data){
              
-            console.log(222)
+            console.log('k222')
              
              
              
