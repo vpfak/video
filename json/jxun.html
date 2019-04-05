@@ -17,6 +17,15 @@
 <script type="text/javascript">
 var w = '130px'; //宽度
 var h = '130px'; //高度
+$(document).ready(function() {
+alert("");
+$("#jsonid").load("https://api.coindesk.com/v1/bpi/currentprice/CNY.json",
+function(data) {
+alert(typeof(data));
+var info = eval("(" + code +")");
+})
+})
+//-->
 $(function(){
   $("#btn").click(function(){
     $.getJSON("https://z1.m1907.cn/api/v/?z=e090d9a71dfabaeefd49ff1c6afcdfae&jx=%E5%80%9A%E5%A4%A9%E5%B1%A0%E9%BE%99%E8%AE%B02019",function(data){
