@@ -1,0 +1,194 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>getJSON获取数据</title>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<style type="text/css">
+#divframe {
+  border: 1px solid #999;
+  width: 500px;
+  margin: 0 auto;
+}
+.loadTitle {
+  background: #CCC;
+  height: 30px;
+}
+</style>
+
+<script>
+    $(document).ready(function(){
+       
+      console.log(1111)
+       $.ajax({
+    url:'https://z1.m1907.cn/api/v/?z=e090d9a71dfabaeefd49ff1c6afcdfae&jx=%E5%80%9A%E5%A4%A9%E5%B1%A0%E9%BE%99%E8%AE%B02019';
+    type: "post",
+    dataType: "json",
+    success: function (result) {
+    //这里该如何写
+console.log(33333)
+console.log('+result+')
+      alert(result.data.source);
+      alert(result.data.eps);
+    }
+});
+          $.getJSON('https://z1.m1907.cn/api/v/?z=e090d9a71dfabaeefd49ff1c6afcdfae&jx=%E5%80%9A%E5%A4%A9%E5%B1%A0%E9%BE%99%E8%AE%B02019',function(data){
+             
+            console.log(222)
+             
+             
+             
+          var mediahtml="";
+           
+          $.each(data,function(i,data) {
+             
+         
+         
+          mediahtml+='<div class="media">'+
+          '<div class="media-left">'+
+          '<a data-toggle="modal" data-target="#myModal">'+
+          '<img class="media-object" src="'+data["imgsrc"]+
+          '" alt="">'+
+            '</a>'+'</div>'+
+            '<div class="media-body">'+
+            '<div class="title">'+
+              '<span class="classify">'+
+                data["classify"]+
+              '</span>'+
+              '<span class="titlename media-heading">'+
+                data['titlename']+
+              '</span>'+
+            '</div>'+
+            '<span class="time">'+
+              '<span class="glyphicon glyphicon-time"></span> '+
+              '<span>'+data['pubdate']+'</span>'+
+            '<p>'+data["intro"]+'</p>'+
+            '<div class="guest">'+
+              '<span class="jia">嘉</span>'+
+              '<span class="name">'+data["name"]+'</span>'+
+              '<span class="position">'+data["position"]+'</span>'+
+              '<span class="glyphicon glyphicon-eye-open"></span>'+
+              '<span class="click-rite"></span>'+
+            '</div>'+
+          '</div>'+
+             
+          '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">'+
+            '<div class="modal-dialog" role="document">'+
+              '<div class="modal-content">'+
+                '<div class="modal-header">'+
+                  '<button type="button" class="close" data-dismiss="modal" aria-label="Close">'+
+                    '<span aria-hidden="true">×</span>'+
+                  '</button>'+
+                '</div>'+
+                '<div class="modal-body"></div>'+
+            '</div>'+
+          '</div>'+
+          '</div>'
+ 
+             
+             
+             
+//          var url_mobi=data.url_mobi;
+//          var url_pc=data.url_pc;
+//          if ((navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i))) {
+//              $('.modal-body').prepend(url_mobi);
+//              }else{
+//              $('.modal-body').prepend(url_pc);
+//              }
+//              
+//              
+              })
+           
+          $('.medialist').after(mediahtml);  
+           
+           
+        })
+           
+           
+        })
+         
+ 
+ 
+        $('#myModal').on('shown.bs.modal', function (e) {
+          // 关键代码，如没将modal设置为 block，则$modala_dialog.height() 为零 
+          $(this).css('display', 'block');
+          var modalHeight = $(window).height() / 2 - $('#myModal .modal-dialog').height() / 2;
+          $(this).find('.modal-dialog').css({
+            'margin-top': modalHeight
+          });
+        });
+ 
+ 
+        //点击预览图时判断
+//        $('.modal').on('click', function () {
+//          if ($('#myModal').css("display") == "none") {
+//            $('.modal-body').children('iframe').attr('src', '');
+//          } else {
+//            $('.modal-body').children('iframe').attr('src',
+//              'https://v.qq.com/iframe/player.html?vid=v0508nqkm75&tiny=0&auto=0');
+//          }
+//        })
+     
+  </script>
+
+
+
+<script type="text/javascript">
+var w = '130px'; //宽度
+var h = '130px'; //高度
+$(document).ready(function() {
+alert("");
+$("#jsonid").load("https://api.coindesk.com/v1/bpi/currentprice/CNY.json",
+function(data) {
+alert(typeof(data));
+var info = eval("(" + code +")");
+})
+})
+//-->
+$(function(){
+  $("#btn").click(function(){
+console.log(1111)
+    $.getJSON("https://z1.m1907.cn/api/v/?z=e090d9a71dfabaeefd49ff1c6afcdfae&jx=%E5%80%9A%E5%A4%A9%E5%B1%A0%E9%BE%99%E8%AE%B02019",function(data){
+console.log(1111)
+      var $jsontip = $("#jsonTip");
+      var strHtml = "123";//存储数据的变量
+      $jsontip.empty();//清空内容
+      $.each(data,function(infoIndex,info){
+        strHtml += "集名："+info["name"]+"<br>";
+        strHtml += "片长时间："+info["duration"]+"<br>";
+        strHtml += "上映时间："+info["period"]+"<br>";
+        strHtml +="<a href='"+info["playUrl"]+"'>"+info["shortTitle"]+"</a>" + "</br></br>";
+        strHtml +="<a href='"+ info["playUrl"] +"'><img width='+w+' height='+h+' src='"+info["imageUrl"] +"' title='"+ info["subtitle"] +"'><\/>"+info["shortTitle"]+"<\/a>" + "</br></br>";
+        strHtml +="<a href='"+ info["data"].source.eps[0].url +"'><img width='+w+' height='+h+' src='"+info["imageUrl"] +"' title='"+ info["subtitle"] +"'><\/>"+info["data"].source.eps[0].name+"<\/a>" + "</br></br>";
+        strHtml += "<hr>"
+      })
+      $jsontip.html(strHtml);//显示处理后的数据
+      $.each(data, function(i, item) {
+                    var content ="<a href='求大神指点'>" + item.title + "</a>" + "</br></br>";
+                    $("#result").append(content);
+                })
+    })
+  })
+})
+
+</script>
+</head>
+<body>
+<div id="divframe">
+  <div class="loadTitle">
+    <input type="button" value="获取数据" id="btn"/>
+  </div>
+<div class="container-fluid content ">
+    <div class="container neirong">
+      <div class="left fl">
+        <div class="title">
+          热门视频
+        </div>
+        <div class="medialist">
+        </div>
+      </div></div>
+</div>
+
+  <div id="jsonTip"> </div>
+</div>
+</body>
+</html>
